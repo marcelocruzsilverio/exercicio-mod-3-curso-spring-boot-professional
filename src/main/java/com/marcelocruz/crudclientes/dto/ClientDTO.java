@@ -1,15 +1,23 @@
 package com.marcelocruz.crudclientes.dto;
 
 import com.marcelocruz.crudclientes.entities.Client;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.PastOrPresent;
+import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
 public class ClientDTO {
 
     private Long id;
+
+    @NotBlank(message = "Campo requerido")
     private String name;
+
     private String cpf;
     private Double income;
+
+    @PastOrPresent(message = "A data de nascimento não pode ser no futuro")
     private LocalDate birthDate;
     private Integer children;
 
